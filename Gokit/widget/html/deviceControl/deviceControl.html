@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+     <link rel="stylesheet" href="../../css/api.css">
+     <link rel="stylesheet" href="../../script/slide/rangeslider.css">
+     <style>
+        body{ background-color: #f1f1f1; }  //设置白色背景
+        // 设置列表和列表项的统一
+        body, ul, li{  margin: 0px;  padding: 0px; }
+        ul { list-style: none;  background-color: white;  margin-top: 30px;
+            border-top: 1px solid #ddd;  border-bottom: 1px solid #ddd; }
+        ul li { margin-left: 5%; border-bottom: 1px solid #ddd;}
+        ul li { padding-top:10px; padding-bottom: 10px; }
+        ul li :last-child { border-bottom: 0px; }
+        ul li .ios7CBox:after { width: 18px;  height: 18px;
+            top: 3px; }
+        ul li .ios7CBox {  display: table-cell;  vertical-align: middle; 
+            height: 24px;  width: 40px; }
+        .gos_rightBlock {  float: right;  margin-right: 5%; }
+        .gos_readonly { color: darkGray; }
+        
+        .gos_slide {margin-left: 10px; margin-right: 10px; width: 75%; height: 5px; display: inline-block; background-color: darkGray;}
+    /*    .rangeslider,
+.rangeslider__fill {
+  transition: background 0.3s;
+}
+
+.rangeslider--is-lowest-value {
+  background-color: white;
+}
+
+.rangeslider--is-highest-value .rangeslider__fill {
+  background-color: red;
+}*/
+       /* ul li .gos_rightBlock .x {  display: table-cell;  vertical-align: middle;
+            height: 24px;  width: 40px; }*/
+        /*ul li .gos_rightBlock .ic-arrow-r { display: inline-block;
+            min-width: 35px;  height: 0px;  padding: 6px 0;
+            background-size: 15px auto;  background-position: right center; }*/
+        
+        /*ul li .gos_slideCellTop {  padding-bottom: 5px; }
+        ul li .gos_slideCellBottom #gos_min{ display: inline-block;  width: 8%;
+            height: 30px;  text-align: center; }
+        ul li .gos_slideCellBottom .gos_slide{  display: inline-block;  width: 75%;
+            text-align: right;  background-color: #fff; }
+        ul li .gos_slideCellBottom  #gos_max{ display: inline-block;  width: 8%;
+            height: 30px;  text-align: center;  margin-right: 5%; }*/
+
+        /*ul li .kuozhan{
+            width: 100px;
+        }
+        .test{margin-left: 100px; width: 200px; margin-right: 5%; background-color: red; word-wrap: break-word;word-break: normal;}*/
+     </style>
+</head>
+<body>
+<ul>
+    <li>
+        <span>布尔可写</span>
+        <span class="gos_rightBlock gos_ledOnOffBlock">
+            <input class="ios7CBox gos_ledOnOff" type="checkbox">
+        </span>
+    </li>
+    <li>
+        <span>枚举可写</span>
+        <select class="gos_rightBlock gos_EnumSelect" onchange="selectDidClick(this)">
+            <option class="gos_Enum0">四</option>
+            <option class="gos_Enum1">五</option>
+            <option class="gos_Enum2">六</option>
+        </select>
+    </li>
+    <li>
+        <div class="gos_slideCellTop">
+            <span>数值可写</span>
+            <span class="gos_rightBlock">0</span>
+        </div>
+        <div class="gos_slideCellBottom">
+            <span class="gos_min">0</span>
+            <!-- <span >滚动条</span> -->
+            <input class="gos_slide" type="range" min="10" max="11" step="0.1" value="10.2" >
+            <span class="gos_rightBlock">999</span>
+        </div>
+    </li>
+<!--     <li>
+        <span class="kuozhan">扩展可写</span>
+        <div class="test">49 2kj fhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd</div>
+    </li> -->
+    <li>
+        <span class="gos_readonly">布尔只读</span>
+        <span class="gos_rightBlock">
+            <input class="ios7CBox gos_ledOnOff" type="checkbox">
+        </span>
+    </li>
+    <li>
+        <span class="gos_readonly">枚举只读</span>
+        <span class="gos_rightBlock gos_readonly gos_ gos_EnumReadOnly">一</span>
+    </li>
+   <!--  <li>
+        <div class="gos_slideCellTop">
+            <span>数值只读</span>
+            <span class="gos_rightBlock">0</span>
+        </div>
+        <div class="gos_slideCellBottom">
+            <span class="gos_min">0</span>
+            <span class="gos_slide">滚动条</span>
+            <span class="gos_max">999</span>
+        </div>
+    </li> -->
+    <!-- <li>
+        <span class="kuozhan">扩展只读</span>
+        <div class="test">49 2kj fhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd</div>
+    </li> -->
+</ul>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.js"></script>
+<script type="text/javascript" src="../../script/base.js"></script>
+<script type="text/javascript" src="../../script/fastclick.js"></script>
+<script type="text/javascript" src="../../script/slide/rangeslider.min.js"></script>
+<script type="text/javascript">
+
+    apiready = function(){
+        console.log('添加点击事件');
+
+        // 为布尔可写的按钮添加点击监听事件
+        addButtonClickEvent("gos_ledOnOffBlock");   
+        updateSelectedShow('gos_EnumSelect', 2); 
+        updateButtonShow('gos_ledOnOffBlock', 1);  
+        updateEnumShow('gos_EnumReadOnly', 'dajksdas');
+
+
+        $('input[type="range"]').rangeslider({
+
+    // Feature detection the default is `true`.
+    // Set this to `false` if you want to use
+    // the polyfill also in Browsers which support
+    // the native <input type="range"> element.
+    polyfill: true,
+
+    // Default CSS classes
+    rangeClass: 'rangeslider',
+    disabledClass: 'rangeslider--disabled',
+    horizontalClass: 'rangeslider--horizontal',
+    verticalClass: 'rangeslider--vertical',
+    fillClass: 'rangeslider__fill',
+    handleClass: 'rangeslider__handle',
+
+    // Callback function
+    onInit: function() { 
+        console.log("***************onInit***************");
+    },
+
+    // Callback function
+    onSlide: function(position, value) {
+        console.log("***************onSlide***************");
+    },
+
+    // Callback function
+    onSlideEnd: function(position, value) {
+        console.log("***************onSlideEnd***************");
+    }
+});
+    }
+
+    // $element.rangeslider({
+
+    //         // Deactivate the feature detection
+    //         polyfill: false,
+
+    //         // Callback function
+    //         onInit: function() {
+    //             valueOutput(this.$element[0]);
+    //         },
+
+    //         // Callback function
+    //         onSlide: function(position, value) {
+    //             console.log('onSlide');
+    //             console.log('position: ' + position, 'value: ' + value);
+    //         },
+
+    //         // Callback function
+    //         onSlideEnd: function(position, value) {
+    //             console.log('onSlideEnd');
+    //             console.log('position: ' + position, 'value: ' + value);
+    //         }
+    //     });
+
+
+    function getElByClsName(clsName)
+    {
+        var doms = document.getElementsByClassName(clsName);
+        return doms.item();
+    }
+
+   //******************数据点为枚举只读值的相关事件处理**********************
+   function updateEnumShow(clsName, value)
+   {
+        var el = getElByClsName(clsName);
+        el.innerText = value;
+   }
+
+   //******************数据点为枚举可写值的相关事件处理**********************
+   // select被点击后调用
+   function selectDidClick(el)
+   {
+        var index = el.selectedIndex; // index就是被选择的选项
+        console.log("select被选中的值: index = " + index);
+   }
+
+   // updateSelectedShow('gos_EnumSelect', 0);
+   // 为select选择某个值
+   function updateSelectedShow(selectedClsName, value)
+   {
+        var selected = getElByClsName(selectedClsName);
+        selected.selectedIndex = value;
+        console.log('selected.selectedIndex = ' + selected.selectedIndex);
+   }
+
+       
+   //******************数据点为布尔值的相关事件处理********************** 
+   // 设置按钮点击事件
+    function addButtonClickEvent(blockClsName)
+    {
+        var button = getElByClsName(blockClsName);
+        console.log("button = " + button);
+        console.log("id = " + $api.byId(blockClsName));
+        FastClick.attach(button);
+        button.addEventListener("click", function(event) {
+            ios7CBoxDidClick(button, blockClsName);
+        }, false);
+        console.log('添加事件成功');
+    }
+
+    // 按钮被点击调用的方法
+    function ios7CBoxDidClick( el, blockClsName){
+        console.log("进入ios7CBoxDidClick")
+         var buttonClsName = "." + blockClsName.replace("Block", "");
+         console.log("buttonClsName = " + buttonClsName);
+        
+         // 渲染颜色
+         if( $api.hasCls(el.querySelector( buttonClsName ), "checked") ){
+             updateButtonAttr(buttonClsName, false);
+             $api.removeCls(el.querySelector( buttonClsName ), "checked");
+         }else{
+             updateButtonAttr(buttonClsName, true);
+             $api.addCls(el.querySelector( buttonClsName ), "checked");
+         }
+         
+    }   
+
+    // 根据button父标签修改按钮的被点击情况
+    function updateButtonAttr(buttonClsName, isChecked)
+    {
+        console.log("buttonClsName = " + buttonClsName + ", isChecked = " + isChecked);
+    }
+
+    // updateButtonShow('gos_ledOnOffBlock', 1);
+    // 根据数据点值value改变按钮的显示状态
+    function updateButtonShow(blockClsName, value)
+    {
+        var blockEl = getElByClsName(blockClsName);
+        var buttonClsName = "." + blockClsName.replace("Block", "");
+        console.log("blockEl = " + blockEl);
+        if (value) {
+            if ($api.hasCls(blockEl.querySelector( buttonClsName ), "checked") == false) {
+                $api.addCls(blockEl.querySelector( buttonClsName ), "checked");
+            }
+        }
+        else
+        {
+            if ($api.hasCls(blockEl.querySelector( buttonClsName ), "checked")) {
+                $api.removeCls(blockEl.querySelector( buttonClsName ), "checked");
+            }
+        }
+    }
+ 
+
+
+</script>
+</html>

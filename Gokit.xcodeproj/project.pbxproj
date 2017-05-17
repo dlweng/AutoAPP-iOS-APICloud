@@ -1,0 +1,512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		333F36DC1E78DDD30066E820 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 333F36DB1E78DDD30066E820 /* Info.plist */; };
+		333F36ED1E78DDFF0066E820 /* APICloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36DD1E78DDFF0066E820 /* APICloud.a */; };
+		333F36FF1E78DE130066E820 /* arcProgress.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36EE1E78DE130066E820 /* arcProgress.a */; };
+		333F37001E78DE130066E820 /* FNScanner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36EF1E78DE130066E820 /* FNScanner.a */; };
+		333F37011E78DE130066E820 /* GizWifiSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36F01E78DE130066E820 /* GizWifiSDK.a */; };
+		333F37021E78DE130066E820 /* libAPICloud-GizWifiSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36F11E78DE130066E820 /* libAPICloud-GizWifiSDK.a */; };
+		333F37031E78DE130066E820 /* libBarCode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36F21E78DE130066E820 /* libBarCode.a */; };
+		333F37041E78DE130066E820 /* libBLEasyConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36F31E78DE130066E820 /* libBLEasyConfig.a */; };
+		333F37051E78DE130066E820 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36F41E78DE130066E820 /* libcrypto.a */; };
+		333F37061E78DE130066E820 /* libEasyLink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36F51E78DE130066E820 /* libEasyLink.a */; };
+		333F37071E78DE130066E820 /* libEsptouch_v0.3.5.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36F61E78DE130066E820 /* libEsptouch_v0.3.5.2.a */; };
+		333F37081E78DE130066E820 /* libLibSimpleConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36F71E78DE130066E820 /* libLibSimpleConfig.a */; };
+		333F37091E78DE140066E820 /* libminizip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36F81E78DE130066E820 /* libminizip.a */; };
+		333F370A1E78DE140066E820 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36F91E78DE130066E820 /* libopencore-amrnb.a */; };
+		333F370B1E78DE140066E820 /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36FA1E78DE130066E820 /* libopencore-amrwb.a */; };
+		333F370C1E78DE140066E820 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36FB1E78DE130066E820 /* libssl.a */; };
+		333F370D1E78DE140066E820 /* libWMOneShotConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36FC1E78DE130066E820 /* libWMOneShotConfig.a */; };
+		333F370E1E78DE140066E820 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36FD1E78DE130066E820 /* libzbar.a */; };
+		333F370F1E78DE140066E820 /* mam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333F36FE1E78DE130066E820 /* mam.a */; };
+		333F37131E78DE220066E820 /* res_FNScanner in Resources */ = {isa = PBXBuildFile; fileRef = 333F37101E78DE220066E820 /* res_FNScanner */; };
+		333F37141E78DE220066E820 /* res_mam in Resources */ = {isa = PBXBuildFile; fileRef = 333F37111E78DE220066E820 /* res_mam */; };
+		333F37151E78DE220066E820 /* uz in Resources */ = {isa = PBXBuildFile; fileRef = 333F37121E78DE220066E820 /* uz */; };
+		33C98B031E2B5EC700F76E34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C98B021E2B5EC700F76E34 /* main.m */; };
+		33C98B061E2B5EC700F76E34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C98B051E2B5EC700F76E34 /* AppDelegate.m */; };
+		33C98B0E1E2B5EC700F76E34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33C98B0D1E2B5EC700F76E34 /* Assets.xcassets */; };
+		33C98B9B1E2B5F5100F76E34 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C98B9A1E2B5F5100F76E34 /* WebKit.framework */; };
+		33C98B9D1E2B5F6000F76E34 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C98B9C1E2B5F6000F76E34 /* libz.tbd */; };
+		33C98B9F1E2B5F6B00F76E34 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C98B9E1E2B5F6B00F76E34 /* libicucore.tbd */; };
+		33C98BA11E2B5F7500F76E34 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C98BA01E2B5F7500F76E34 /* libstdc++.tbd */; };
+		33C98BE81E2B603300F76E34 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C98BE71E2B603300F76E34 /* libiconv.tbd */; };
+		33C98BEA1E2B60B600F76E34 /* widget in Resources */ = {isa = PBXBuildFile; fileRef = 33C98BE91E2B60B600F76E34 /* widget */; };
+		33CC129A1E2B66A200F1BC7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CC12991E2B66A200F1BC7B /* ViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		333F36DB1E78DDD30066E820 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		333F36DD1E78DDFF0066E820 /* APICloud.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = APICloud.a; sourceTree = "<group>"; };
+		333F36DE1E78DDFF0066E820 /* APIEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIEvent.h; sourceTree = "<group>"; };
+		333F36DF1E78DDFF0066E820 /* APIExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIExport.h; sourceTree = "<group>"; };
+		333F36E11E78DDFF0066E820 /* NSDictionaryUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionaryUtils.h; sourceTree = "<group>"; };
+		333F36E21E78DDFF0066E820 /* UZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZAppDelegate.h; sourceTree = "<group>"; };
+		333F36E31E78DDFF0066E820 /* UZAppUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZAppUtils.h; sourceTree = "<group>"; };
+		333F36E41E78DDFF0066E820 /* UZModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZModule.h; sourceTree = "<group>"; };
+		333F36E51E78DDFF0066E820 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		333F36E61E78DDFF0066E820 /* APIModuleMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIModuleMethod.h; sourceTree = "<group>"; };
+		333F36E71E78DDFF0066E820 /* APIScriptMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIScriptMessage.h; sourceTree = "<group>"; };
+		333F36E81E78DDFF0066E820 /* APIUpdateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIUpdateManager.h; sourceTree = "<group>"; };
+		333F36E91E78DDFF0066E820 /* APIWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIWebView.h; sourceTree = "<group>"; };
+		333F36EA1E78DDFF0066E820 /* APIWidgetContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIWidgetContainer.h; sourceTree = "<group>"; };
+		333F36EB1E78DDFF0066E820 /* APIWindowContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIWindowContainer.h; sourceTree = "<group>"; };
+		333F36EC1E78DDFF0066E820 /* UZWebViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZWebViewProtocol.h; sourceTree = "<group>"; };
+		333F36EE1E78DE130066E820 /* arcProgress.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = arcProgress.a; sourceTree = "<group>"; };
+		333F36EF1E78DE130066E820 /* FNScanner.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = FNScanner.a; sourceTree = "<group>"; };
+		333F36F01E78DE130066E820 /* GizWifiSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = GizWifiSDK.a; sourceTree = "<group>"; };
+		333F36F11E78DE130066E820 /* libAPICloud-GizWifiSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libAPICloud-GizWifiSDK.a"; sourceTree = "<group>"; };
+		333F36F21E78DE130066E820 /* libBarCode.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBarCode.a; sourceTree = "<group>"; };
+		333F36F31E78DE130066E820 /* libBLEasyConfig.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBLEasyConfig.a; sourceTree = "<group>"; };
+		333F36F41E78DE130066E820 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		333F36F51E78DE130066E820 /* libEasyLink.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEasyLink.a; sourceTree = "<group>"; };
+		333F36F61E78DE130066E820 /* libEsptouch_v0.3.5.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEsptouch_v0.3.5.2.a; sourceTree = "<group>"; };
+		333F36F71E78DE130066E820 /* libLibSimpleConfig.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLibSimpleConfig.a; sourceTree = "<group>"; };
+		333F36F81E78DE130066E820 /* libminizip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libminizip.a; sourceTree = "<group>"; };
+		333F36F91E78DE130066E820 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		333F36FA1E78DE130066E820 /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
+		333F36FB1E78DE130066E820 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		333F36FC1E78DE130066E820 /* libWMOneShotConfig.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWMOneShotConfig.a; sourceTree = "<group>"; };
+		333F36FD1E78DE130066E820 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
+		333F36FE1E78DE130066E820 /* mam.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = mam.a; sourceTree = "<group>"; };
+		333F37101E78DE220066E820 /* res_FNScanner */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res_FNScanner; sourceTree = "<group>"; };
+		333F37111E78DE220066E820 /* res_mam */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res_mam; sourceTree = "<group>"; };
+		333F37121E78DE220066E820 /* uz */ = {isa = PBXFileReference; lastKnownFileType = folder; path = uz; sourceTree = "<group>"; };
+		33C98AFE1E2B5EC700F76E34 /* Gokit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gokit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33C98B021E2B5EC700F76E34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		33C98B041E2B5EC700F76E34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		33C98B051E2B5EC700F76E34 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		33C98B0D1E2B5EC700F76E34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33C98B121E2B5EC700F76E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33C98B9A1E2B5F5100F76E34 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		33C98B9C1E2B5F6000F76E34 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		33C98B9E1E2B5F6B00F76E34 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		33C98BA01E2B5F7500F76E34 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		33C98BE71E2B603300F76E34 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		33C98BE91E2B60B600F76E34 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
+		33CC12981E2B66A200F1BC7B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		33CC12991E2B66A200F1BC7B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33C98AFB1E2B5EC700F76E34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333F370C1E78DE140066E820 /* libssl.a in Frameworks */,
+				333F370D1E78DE140066E820 /* libWMOneShotConfig.a in Frameworks */,
+				333F37001E78DE130066E820 /* FNScanner.a in Frameworks */,
+				333F37081E78DE130066E820 /* libLibSimpleConfig.a in Frameworks */,
+				333F36ED1E78DDFF0066E820 /* APICloud.a in Frameworks */,
+				33C98BE81E2B603300F76E34 /* libiconv.tbd in Frameworks */,
+				333F37031E78DE130066E820 /* libBarCode.a in Frameworks */,
+				333F37091E78DE140066E820 /* libminizip.a in Frameworks */,
+				333F37021E78DE130066E820 /* libAPICloud-GizWifiSDK.a in Frameworks */,
+				333F370B1E78DE140066E820 /* libopencore-amrwb.a in Frameworks */,
+				33C98BA11E2B5F7500F76E34 /* libstdc++.tbd in Frameworks */,
+				333F370F1E78DE140066E820 /* mam.a in Frameworks */,
+				333F37011E78DE130066E820 /* GizWifiSDK.a in Frameworks */,
+				333F36FF1E78DE130066E820 /* arcProgress.a in Frameworks */,
+				33C98B9F1E2B5F6B00F76E34 /* libicucore.tbd in Frameworks */,
+				333F37061E78DE130066E820 /* libEasyLink.a in Frameworks */,
+				333F37041E78DE130066E820 /* libBLEasyConfig.a in Frameworks */,
+				333F370A1E78DE140066E820 /* libopencore-amrnb.a in Frameworks */,
+				333F37071E78DE130066E820 /* libEsptouch_v0.3.5.2.a in Frameworks */,
+				333F37051E78DE130066E820 /* libcrypto.a in Frameworks */,
+				33C98B9D1E2B5F6000F76E34 /* libz.tbd in Frameworks */,
+				333F370E1E78DE140066E820 /* libzbar.a in Frameworks */,
+				33C98B9B1E2B5F5100F76E34 /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		333F36D81E78DDCE0066E820 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				333F36DD1E78DDFF0066E820 /* APICloud.a */,
+				333F36DE1E78DDFF0066E820 /* APIEvent.h */,
+				333F36DF1E78DDFF0066E820 /* APIExport.h */,
+				333F36E01E78DDFF0066E820 /* APIKit */,
+				333F36E51E78DDFF0066E820 /* APIManager.h */,
+				333F36E61E78DDFF0066E820 /* APIModuleMethod.h */,
+				333F36E71E78DDFF0066E820 /* APIScriptMessage.h */,
+				333F36E81E78DDFF0066E820 /* APIUpdateManager.h */,
+				333F36E91E78DDFF0066E820 /* APIWebView.h */,
+				333F36EA1E78DDFF0066E820 /* APIWidgetContainer.h */,
+				333F36EB1E78DDFF0066E820 /* APIWindowContainer.h */,
+				333F36EC1E78DDFF0066E820 /* UZWebViewProtocol.h */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		333F36DA1E78DDCE0066E820 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				333F36EE1E78DE130066E820 /* arcProgress.a */,
+				333F36EF1E78DE130066E820 /* FNScanner.a */,
+				333F36F01E78DE130066E820 /* GizWifiSDK.a */,
+				333F36F11E78DE130066E820 /* libAPICloud-GizWifiSDK.a */,
+				333F36F21E78DE130066E820 /* libBarCode.a */,
+				333F36F31E78DE130066E820 /* libBLEasyConfig.a */,
+				333F36F41E78DE130066E820 /* libcrypto.a */,
+				333F36F51E78DE130066E820 /* libEasyLink.a */,
+				333F36F61E78DE130066E820 /* libEsptouch_v0.3.5.2.a */,
+				333F36F71E78DE130066E820 /* libLibSimpleConfig.a */,
+				333F36F81E78DE130066E820 /* libminizip.a */,
+				333F36F91E78DE130066E820 /* libopencore-amrnb.a */,
+				333F36FA1E78DE130066E820 /* libopencore-amrwb.a */,
+				333F36FB1E78DE130066E820 /* libssl.a */,
+				333F36FC1E78DE130066E820 /* libWMOneShotConfig.a */,
+				333F36FD1E78DE130066E820 /* libzbar.a */,
+				333F36FE1E78DE130066E820 /* mam.a */,
+				333F37101E78DE220066E820 /* res_FNScanner */,
+				333F37111E78DE220066E820 /* res_mam */,
+				333F37121E78DE220066E820 /* uz */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		333F36E01E78DDFF0066E820 /* APIKit */ = {
+			isa = PBXGroup;
+			children = (
+				333F36E11E78DDFF0066E820 /* NSDictionaryUtils.h */,
+				333F36E21E78DDFF0066E820 /* UZAppDelegate.h */,
+				333F36E31E78DDFF0066E820 /* UZAppUtils.h */,
+				333F36E41E78DDFF0066E820 /* UZModule.h */,
+			);
+			path = APIKit;
+			sourceTree = "<group>";
+		};
+		33C98AF51E2B5EC600F76E34 = {
+			isa = PBXGroup;
+			children = (
+				33C98B001E2B5EC700F76E34 /* Gokit */,
+				33C98AFF1E2B5EC700F76E34 /* Products */,
+				33C98B991E2B5F5100F76E34 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		33C98AFF1E2B5EC700F76E34 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33C98AFE1E2B5EC700F76E34 /* Gokit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33C98B001E2B5EC700F76E34 /* Gokit */ = {
+			isa = PBXGroup;
+			children = (
+				33E36B6B1E6D069C0028F0B5 /* lib */,
+				33C98B041E2B5EC700F76E34 /* AppDelegate.h */,
+				33C98B051E2B5EC700F76E34 /* AppDelegate.m */,
+				33CC12981E2B66A200F1BC7B /* ViewController.h */,
+				33CC12991E2B66A200F1BC7B /* ViewController.m */,
+				33C98BE91E2B60B600F76E34 /* widget */,
+				33C98B0D1E2B5EC700F76E34 /* Assets.xcassets */,
+				33C98B121E2B5EC700F76E34 /* Info.plist */,
+				33C98B011E2B5EC700F76E34 /* Supporting Files */,
+			);
+			path = Gokit;
+			sourceTree = "<group>";
+		};
+		33C98B011E2B5EC700F76E34 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33C98B021E2B5EC700F76E34 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33C98B991E2B5F5100F76E34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33C98BE71E2B603300F76E34 /* libiconv.tbd */,
+				33C98BA01E2B5F7500F76E34 /* libstdc++.tbd */,
+				33C98B9E1E2B5F6B00F76E34 /* libicucore.tbd */,
+				33C98B9C1E2B5F6000F76E34 /* libz.tbd */,
+				33C98B9A1E2B5F5100F76E34 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		33E36B6B1E6D069C0028F0B5 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				333F36DB1E78DDD30066E820 /* Info.plist */,
+				333F36D81E78DDCE0066E820 /* Engine */,
+				333F36DA1E78DDCE0066E820 /* Modules */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33C98AFD1E2B5EC700F76E34 /* Gokit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33C98B151E2B5EC700F76E34 /* Build configuration list for PBXNativeTarget "Gokit" */;
+			buildPhases = (
+				33C98AFA1E2B5EC700F76E34 /* Sources */,
+				33C98AFB1E2B5EC700F76E34 /* Frameworks */,
+				33C98AFC1E2B5EC700F76E34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gokit;
+			productName = Gokit;
+			productReference = 33C98AFE1E2B5EC700F76E34 /* Gokit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33C98AF61E2B5EC600F76E34 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = gizwits;
+				TargetAttributes = {
+					33C98AFD1E2B5EC700F76E34 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 4X78T389EK;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 33C98AF91E2B5EC600F76E34 /* Build configuration list for PBXProject "Gokit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33C98AF51E2B5EC600F76E34;
+			productRefGroup = 33C98AFF1E2B5EC700F76E34 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33C98AFD1E2B5EC700F76E34 /* Gokit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33C98AFC1E2B5EC700F76E34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333F37131E78DE220066E820 /* res_FNScanner in Resources */,
+				33C98BEA1E2B60B600F76E34 /* widget in Resources */,
+				33C98B0E1E2B5EC700F76E34 /* Assets.xcassets in Resources */,
+				333F37141E78DE220066E820 /* res_mam in Resources */,
+				333F36DC1E78DDD30066E820 /* Info.plist in Resources */,
+				333F37151E78DE220066E820 /* uz in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33C98AFA1E2B5EC700F76E34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33CC129A1E2B66A200F1BC7B /* ViewController.m in Sources */,
+				33C98B061E2B5EC700F76E34 /* AppDelegate.m in Sources */,
+				33C98B031E2B5EC700F76E34 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		33C98B131E2B5EC700F76E34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		33C98B141E2B5EC700F76E34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33C98B161E2B5EC700F76E34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xtreme Programming Group, Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4X78T389EK;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Gokit/lib/Modules",
+				);
+				INFOPLIST_FILE = Gokit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Gokit/lib/Engine",
+					"$(PROJECT_DIR)/Gokit/lib/Modules",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gizwits.openSource.gokit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		33C98B171E2B5EC700F76E34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xtreme Programming Group, Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4X78T389EK;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Gokit/lib/Modules",
+				);
+				INFOPLIST_FILE = Gokit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Gokit/lib/Engine",
+					"$(PROJECT_DIR)/Gokit/lib/Modules",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gizwits.openSource.gokit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33C98AF91E2B5EC600F76E34 /* Build configuration list for PBXProject "Gokit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33C98B131E2B5EC700F76E34 /* Debug */,
+				33C98B141E2B5EC700F76E34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33C98B151E2B5EC700F76E34 /* Build configuration list for PBXNativeTarget "Gokit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33C98B161E2B5EC700F76E34 /* Debug */,
+				33C98B171E2B5EC700F76E34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33C98AF61E2B5EC600F76E34 /* Project object */;
+}
