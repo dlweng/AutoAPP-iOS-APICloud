@@ -24,37 +24,8 @@
         .gos_readonly { color: darkGray; }
         
         .gos_slide {margin-left: 10px; margin-right: 10px; width: 75%; height: 5px; display: inline-block; background-color: darkGray;}
-    /*    .rangeslider,
-.rangeslider__fill {
-  transition: background 0.3s;
-}
-
-.rangeslider--is-lowest-value {
-  background-color: white;
-}
-
-.rangeslider--is-highest-value .rangeslider__fill {
-  background-color: red;
-}*/
-       /* ul li .gos_rightBlock .x {  display: table-cell;  vertical-align: middle;
-            height: 24px;  width: 40px; }*/
-        /*ul li .gos_rightBlock .ic-arrow-r { display: inline-block;
-            min-width: 35px;  height: 0px;  padding: 6px 0;
-            background-size: 15px auto;  background-position: right center; }*/
-        
-        /*ul li .gos_slideCellTop {  padding-bottom: 5px; }
-        ul li .gos_slideCellBottom #gos_min{ display: inline-block;  width: 8%;
-            height: 30px;  text-align: center; }
-        ul li .gos_slideCellBottom .gos_slide{  display: inline-block;  width: 75%;
-            text-align: right;  background-color: #fff; }
-        ul li .gos_slideCellBottom  #gos_max{ display: inline-block;  width: 8%;
-            height: 30px;  text-align: center;  margin-right: 5%; }*/
-
-        /*ul li .kuozhan{
-            width: 100px;
-        }
-        .test{margin-left: 100px; width: 200px; margin-right: 5%; background-color: red; word-wrap: break-word;word-break: normal;}*/
-     </style>
+        ul li .gos_title{vertical-align: middle;} //设置垂直居中
+    </style>
 </head>
 <body>
 <ul>
@@ -79,15 +50,10 @@
         </div>
         <div class="gos_slideCellBottom">
             <span class="gos_min">0</span>
-            <!-- <span >滚动条</span> -->
-            <input class="gos_slide" type="range" min="10" max="11" step="0.1" value="10.2" >
+            <input class="gos_slide" type="range" min="0" max="9" step="3" value="6" data-rangeslider>
             <span class="gos_rightBlock">999</span>
         </div>
     </li>
-<!--     <li>
-        <span class="kuozhan">扩展可写</span>
-        <div class="test">49 2kj fhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd</div>
-    </li> -->
     <li>
         <span class="gos_readonly">布尔只读</span>
         <span class="gos_rightBlock">
@@ -96,104 +62,87 @@
     </li>
     <li>
         <span class="gos_readonly">枚举只读</span>
-        <span class="gos_rightBlock gos_readonly gos_ gos_EnumReadOnly">一</span>
+        <span class="gos_rightBlock gos_readonly gos_EnumReadOnly">一</span>
     </li>
-   <!--  <li>
-        <div class="gos_slideCellTop">
-            <span>数值只读</span>
-            <span class="gos_rightBlock">0</span>
-        </div>
-        <div class="gos_slideCellBottom">
-            <span class="gos_min">0</span>
-            <span class="gos_slide">滚动条</span>
-            <span class="gos_max">999</span>
-        </div>
-    </li> -->
-    <!-- <li>
-        <span class="kuozhan">扩展只读</span>
-        <div class="test">49 2kj fhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd492kjfhskhakd</div>
-    </li> -->
+    <li>
+        <span class="gos_readonly">数值只读</span>
+        <span class="gos_rightBlock gos_readonly gos_NumberReadOnly">0</span>
+    </li>
+    
 </ul>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript" src="../../script/jquery.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
 <script type="text/javascript" src="../../script/base.js"></script>
 <script type="text/javascript" src="../../script/fastclick.js"></script>
 <script type="text/javascript" src="../../script/slide/rangeslider.min.js"></script>
 <script type="text/javascript">
 
     apiready = function(){
-        console.log('添加点击事件');
+      api.addEventListener({
+                name : 'viewappear'
+            }, fnAppear);
 
+        var f = 0.1210;
         // 为布尔可写的按钮添加点击监听事件
-        addButtonClickEvent("gos_ledOnOffBlock");   
-        updateSelectedShow('gos_EnumSelect', 2); 
+        initSlide();
+        addButtonClickEvent('gos_ledOnOffBlock');   
+        updateSelectedShow('gos_EnumSelect', 1);
         updateButtonShow('gos_ledOnOffBlock', 1);  
         updateEnumShow('gos_EnumReadOnly', 'dajksdas');
-
-
-        $('input[type="range"]').rangeslider({
-
-    // Feature detection the default is `true`.
-    // Set this to `false` if you want to use
-    // the polyfill also in Browsers which support
-    // the native <input type="range"> element.
-    polyfill: true,
-
-    // Default CSS classes
-    rangeClass: 'rangeslider',
-    disabledClass: 'rangeslider--disabled',
-    horizontalClass: 'rangeslider--horizontal',
-    verticalClass: 'rangeslider--vertical',
-    fillClass: 'rangeslider__fill',
-    handleClass: 'rangeslider__handle',
-
-    // Callback function
-    onInit: function() { 
-        console.log("***************onInit***************");
-    },
-
-    // Callback function
-    onSlide: function(position, value) {
-        console.log("***************onSlide***************");
-    },
-
-    // Callback function
-    onSlideEnd: function(position, value) {
-        console.log("***************onSlideEnd***************");
-    }
-});
+        updateNumberShow('gos_NumberReadOnly', f);
     }
 
-    // $element.rangeslider({
+    function fnAppear()
+    {
 
-    //         // Deactivate the feature detection
-    //         polyfill: false,
+    }
 
-    //         // Callback function
-    //         onInit: function() {
-    //             valueOutput(this.$element[0]);
-    //         },
+    function initSlide()
+    {
+        var $document = $(document);
+        var selector = '[data-rangeslider]';
+        var $element = $(selector);
+        $element.rangeslider({
 
-    //         // Callback function
-    //         onSlide: function(position, value) {
-    //             console.log('onSlide');
-    //             console.log('position: ' + position, 'value: ' + value);
-    //         },
+            // Deactivate the feature detection
+            polyfill: false,
 
-    //         // Callback function
-    //         onSlideEnd: function(position, value) {
-    //             console.log('onSlideEnd');
-    //             console.log('position: ' + position, 'value: ' + value);
-    //         }
-    //     });
+            // Callback function
+            onInit: function() {
+                // valueOutput(this.$element[0]);
+                console.log('onInit');
+            },
 
+            // Callback function
+            onSlide: function(position, value) {
+                console.log('onSlide');
+                console.log('position: ' + position, 'value: ' + value);
+            },
+
+            // Callback function
+            onSlideEnd: function(position, value) {
+                console.log('onSlideEnd');
+                console.log('position: ' + position, 'value: ' + value);
+            }
+        });
+    }
 
     function getElByClsName(clsName)
     {
         var doms = document.getElementsByClassName(clsName);
-        return doms.item();
+        console.log("doms = " + doms);
+        console.log("doms = " + JSON.stringify(doms));
+        return doms[0];
     }
+
+   //******************数据点为数值只读值的相关事件处理**********************
+   function updateNumberShow(clsName, value)
+   {
+        var el = getElByClsName(clsName);
+        el.innerText = value;
+   }
 
    //******************数据点为枚举只读值的相关事件处理**********************
    function updateEnumShow(clsName, value)
@@ -210,7 +159,6 @@
         console.log("select被选中的值: index = " + index);
    }
 
-   // updateSelectedShow('gos_EnumSelect', 0);
    // 为select选择某个值
    function updateSelectedShow(selectedClsName, value)
    {
@@ -224,6 +172,7 @@
    // 设置按钮点击事件
     function addButtonClickEvent(blockClsName)
     {
+        console.log("blockClsName = " + blockClsName);
         var button = getElByClsName(blockClsName);
         console.log("button = " + button);
         console.log("id = " + $api.byId(blockClsName));
@@ -277,7 +226,5 @@
         }
     }
  
-
-
 </script>
 </html>

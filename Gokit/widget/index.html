@@ -37,7 +37,7 @@
 			autoSetDeviceDomain: false
 		 }, function(ret, err) {
 
-			if( ret.errorCode === 8316 ){
+			if(ret && ret.errorCode === 8316 ){
 				fnJumpWin({
 					name:  'login',
 					path: '/user',
@@ -48,6 +48,8 @@
 				fnNotes( err );
 			}
 		});
+
+		gizWifiSDK.setLogLevel({"logLevel": 0});
 	}
 	
 	
