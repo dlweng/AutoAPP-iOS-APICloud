@@ -22,9 +22,12 @@
             height: 24px;  width: 40px; }
         .gos_rightBlock {  float: right;  margin-right: 5%; }
         .gos_readonly { color: darkGray; }
-        
-        .gos_slide {margin-left: 10px; margin-right: 10px; width: 75%; height: 5px; display: inline-block; background-color: darkGray;}
-        ul li .gos_title{vertical-align: middle;} //设置垂直居中
+        .gos_slideCellBottom { margin:3px 0; }
+        .gos_slideMin { width: 12%;text-align: center;float: left; }
+        .gos_slideDiv { width:73%;float: left;padding-top: 8px;margin: 0;position: relative; }
+        .gos_slide { display:block; width: 130%;position: absolute;left: 0;
+            top: 0; }
+        .gos_slideMax { float:left;width: 12%;text-align: center;padding: 0;margin: 0; }
     </style>
 </head>
 <body>
@@ -49,9 +52,40 @@
             <span class="gos_rightBlock">0</span>
         </div>
         <div class="gos_slideCellBottom">
-            <span class="gos_min">0</span>
-            <input class="gos_slide" type="range" min="0" max="9" step="3" value="6" data-rangeslider>
-            <span class="gos_rightBlock">999</span>
+            <div class="gos_slideMin">0</div>
+            <div class="gos_slideDiv">
+            <input class="gos_slide gos_slide1" type="range" min="0" max="9" step="3" value="6" data-rangeslider>
+            </div>
+            <div class="gos_slideMax">999</div>
+            <div style="clear: both;"></div>
+        </div>
+    </li>
+    <li>
+        <div class="gos_slideCellTop">
+            <span>数值可写</span>
+            <span class="gos_rightBlock">0</span>
+        </div>
+        <div class="gos_slideCellBottom">
+            <div class="gos_slideMin">0</div>
+            <div class="gos_slideDiv">
+            <input class="gos_slide gos_slide2" type="range" min="0" max="9" step="3" value="6" data-rangeslider>
+            </div>
+            <div class="gos_slideMax">999</div>
+            <div style="clear: both;"></div>
+        </div>
+    </li>
+    <li>
+        <div class="gos_slideCellTop">
+            <span>数值可写</span>
+            <span class="gos_rightBlock">0</span>
+        </div>
+        <div class="gos_slideCellBottom">
+            <div class="gos_slideMin">0</div>
+            <div class="gos_slideDiv">
+            <input class="gos_slide gos_slide3" type="range" min="0" max="9" step="3" value="6" data-rangeslider>
+            </div>
+            <div class="gos_slideMax">999</div>
+            <div style="clear: both;"></div>
         </div>
     </li>
     <li>
@@ -92,6 +126,9 @@
         updateButtonShow('gos_ledOnOffBlock', 1);  
         updateEnumShow('gos_EnumReadOnly', 'dajksdas');
         updateNumberShow('gos_NumberReadOnly', f);
+        updateSlideShow('gos_slide1', 9);
+        updateSlideShow('gos_slide2', 3);
+        updateSlideShow('gos_slide3', 6);
     }
 
     function fnAppear()
@@ -99,42 +136,47 @@
 
     }
 
+    function getElByClsName(clsName)
+    {
+        var doms = document.getElementsByClassName(clsName);
+        // console.log("doms = " + doms);
+        // console.log("doms = " + JSON.stringify(doms));
+        return doms[0];
+    }
+    
+    //******************数据点为可写值的相关事件处理**********************
     function initSlide()
     {
         var $document = $(document);
         var selector = '[data-rangeslider]';
         var $element = $(selector);
-        $element.rangeslider({
 
-            // Deactivate the feature detection
-            polyfill: false,
-
-            // Callback function
-            onInit: function() {
-                // valueOutput(this.$element[0]);
-                console.log('onInit');
-            },
-
-            // Callback function
-            onSlide: function(position, value) {
-                console.log('onSlide');
-                console.log('position: ' + position, 'value: ' + value);
-            },
-
-            // Callback function
-            onSlideEnd: function(position, value) {
-                console.log('onSlideEnd');
-                console.log('position: ' + position, 'value: ' + value);
+        // 滚动条滚动结束调用的方法
+        $document.on('input', 'input[type="range"], ' + selector, function(e) {
+            var el = e.target;
+            if (el == getElByClsName('gos_slide1'))
+            {
+                console.log("gos_slide1 " + el.value);
+            }
+            else if (el == getElByClsName('gos_slide2'))
+            {
+                console.log("gos_slide2 " + el.value);
+            }
+            else if (el == getElByClsName('gos_slide3'))
+            {
+                console.log("gos_slide3 " + el.value);
             }
         });
+
+        $element.rangeslider({polyfill: false });
     }
 
-    function getElByClsName(clsName)
+    // 更新滚动条值的方法
+    function updateSlideShow(clsName, value)
     {
-        var doms = document.getElementsByClassName(clsName);
-        console.log("doms = " + doms);
-        console.log("doms = " + JSON.stringify(doms));
-        return doms[0];
+        var parentNode = getElByClsName(clsName).parentNode;
+        var $inputRange = $('[data-rangeslider]', parentNode);
+        $inputRange.val(value).change();
     }
 
    //******************数据点为数值只读值的相关事件处理**********************
