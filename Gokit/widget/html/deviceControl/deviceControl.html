@@ -115,7 +115,7 @@
     </li>
     <li class="gos_extendLi">
             <div class="gos_extendTitle">扩展可写</div>
-            <textarea id="textarea" placeholder="回复内容"></textarea> 
+            <textarea id="textarea" class="gos_extend" onkeyup="value=value.replace(/[^\d/a-fA-F]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d/a-fA-F]/g,''))"></textarea> 
     </li>
     <li>
         <span class="gos_readonly">布尔只读</span>
@@ -159,6 +159,8 @@
         updateSlideShow('gos_slide1', 9);
         updateSlideShow('gos_slide2', 3);
         updateSlideShow('gos_slide3', 6);
+        updateExtendShow('gos_extend', 'aaaaaaaaaaaaaaaaaafffffffffffffffffffcccccccccccccccccccccccc');
+        
     }
 
     function fnAppear()
@@ -179,6 +181,13 @@
     {
          var text = document.getElementById("textarea");
         autoTextarea(text);// 调用
+    }
+
+    function updateExtendShow(clsName, value)
+    {
+        var extend = getElByClsName(clsName);
+        extend.value = value;
+        autoTextarea(extend);
     }
     
     /**
@@ -222,10 +231,16 @@ function autoTextarea(elem, extra, maxHeight) {
                 var scrollTop, height,
                         padding = 0,
                         style = elem.style;
- 
-                if (elem._length === elem.value.length) return;
+                
+                //elem.value.length : 实际的长度
+                // elem.value 最新的字符串
+                // elem._length 本次未输入前的长度
+                // console.log('elem.value = ' + elem.value);
+                console.log('elem.value.length = ' + elem.value.length);
+                console.log('elem.lenght' + elem._length)
+
                 elem._length = elem.value.length;
- 
+               // elem.value = "dsadaklsdadjada"
                 if (!isFirefox && !isOpera) {
                         padding = parseInt(getStyle('paddingTop')) + parseInt(getStyle('paddingBottom'));
                 };
@@ -253,6 +268,7 @@ function autoTextarea(elem, extra, maxHeight) {
         addEvent('focus', change);
         change();
 }
+
     //******************数据点为数值可写值的相关事件处理**********************
     function initSlide()
     {
