@@ -115,7 +115,9 @@
     </li>
     <li class="gos_extendLi">
             <div class="gos_extendTitle">扩展可写</div>
-            <textarea id="textarea" class="gos_extend" onkeyup="value=value.replace(/[^\d/a-fA-F]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d/a-fA-F]/g,''))"></textarea> 
+            <textarea id="textarea" class="gos_extend"></textarea> 
+            <!-- <textarea id="textarea" class="gos_extend" onkeypress="enterPress(this)" onkeydown="enterPress(this)"></textarea>  -->
+            <!--设置输入的字符只能是16进制数 onkeydown="value=value.replace(/[^\d/a-fA-F\s+]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d/a-fA-F\s+]/g,''))" -->
     </li>
     <li>
         <span class="gos_readonly">布尔只读</span>
@@ -142,6 +144,9 @@
 <script type="text/javascript" src="../../script/slide/rangeslider.min.js"></script>
 <script type="text/javascript">
 
+     // 存储textView的焦点位置
+     var oldFoucsLocation = 0;
+
     apiready = function(){
       api.addEventListener({
                 name : 'viewappear'
@@ -159,8 +164,20 @@
         updateSlideShow('gos_slide1', 9);
         updateSlideShow('gos_slide2', 3);
         updateSlideShow('gos_slide3', 6);
-        updateExtendShow('gos_extend', 'aaaaaaaaaaaaaaaaaafffffffffffffffffffcccccccccccccccccccccccc');
-        
+
+        enterPress();
+    }
+
+
+    function enterPress()
+    {
+        $('#textarea').on("keydown", function(e){
+            if (e.keyCode == 13 || e.keyCode == 34) {
+                console.log("退出键盘");
+                // 在这里写下发控制指令的代码
+                document.activeElement.blur();
+            }
+        });
     }
 
     function fnAppear()
@@ -175,6 +192,69 @@
         // console.log("doms = " + JSON.stringify(doms));
         return doms[0];
     }
+
+//******************textarea光标的获取和设置**********************
+    function getCursorPosition(textarea) {
+    var rangeData = {text: "", start: 0, end: 0 };
+        // textarea.focus();
+    if (textarea.setSelectionRange) { // W3C
+        rangeData.start= textarea.selectionStart;
+        rangeData.end = textarea.selectionEnd;
+        rangeData.text = (rangeData.start != rangeData.end) ? textarea.value.substring(rangeData.start, rangeData.end): "";
+    } 
+    // else if (document.selection) { // IE
+    //     var i,
+    //         oS = document.selection.createRange(),
+    //         // Don't: oR = textarea.createTextRange()
+    //         oR = document.body.createTextRange();
+    //     oR.moveToElementText(textarea);
+      
+    //     rangeData.text = oS.text;
+    //     rangeData.bookmark = oS.getBookmark();
+        
+    //     // object.moveStart(sUnit [, iCount]) 
+    //     // Return Value: Integer that returns the number of units moved.
+    //     for (i = 0; oR.compareEndPoints('StartToStart', oS) < 0 && oS.moveStart("character", -1) !== 0; i ++) {
+    //         // Why? You can alert(textarea.value.length)
+    //         if (textarea.value.charAt(i) == '\n') {
+    //             i ++;
+    //         }
+    //     }
+    //     rangeData.start = i;
+    //     rangeData.end = rangeData.text.length + rangeData.start;
+    // }
+        
+    return rangeData;
+}
+
+/**
+* setCursorPosition Method
+*
+* Created by Blank Zheng on 2010/11/12.
+* Copyright (c) 2010 PlanABC.net. All rights reserved.
+* 
+* The copyrights embodied in the content of this file are licensed under the BSD (revised) open source license.
+*/
+function setCursorPosition(textarea, rangeData) {
+    if(!rangeData) {
+        alert("You must get cursor position first.")
+    }
+    if (textarea.setSelectionRange) { // W3C
+        textarea.focus();
+        textarea.setSelectionRange(rangeData.start, rangeData.end);
+    } else if (textarea.createTextRange) { // IE
+        var oR = textarea.createTextRange();
+        // Fixbug :
+        // In IE, if cursor position at the end of textarea, the setCursorPosition function don't work
+        if(textarea.value.length === rangeData.start) {
+            oR.collapse(false)
+            oR.select();
+        } else {
+            oR.moveToBookmark(rangeData.bookmark);
+            oR.select();    
+        }
+    }
+}
 
     //******************数据点为扩展可写值的相关事件处理**********************
     function initExtend()
@@ -235,12 +315,23 @@ function autoTextarea(elem, extra, maxHeight) {
                 //elem.value.length : 实际的长度
                 // elem.value 最新的字符串
                 // elem._length 本次未输入前的长度
-                // console.log('elem.value = ' + elem.value);
-                console.log('elem.value.length = ' + elem.value.length);
-                console.log('elem.lenght' + elem._length)
+            
+                console.log('elem.value = ' + elem.value);
+                // console.log('elem.value.length = ' + elem.value.length);
+                // console.log('elem.lenght' + elem._length)
+                // var rangeData = getCursorPosition(getElByClsName('gos_extend'));
+                // console.log('rangeData.text = ' + rangeData.text + ', rangeData.start = ' + rangeData.start + ', rangeData.end = ' + rangeData.end);
 
-                elem._length = elem.value.length;
+                // rangeData.start = 3;
+                // rangeData.end = 3;
+                // setCursorPosition(getElByClsName('gos_extend'), rangeData);
+
+                // elem.value = elem.value.toUpperCase();  //将小写字母替换为大写字母
+            
+
                // elem.value = "dsadaklsdadjada"
+               formateStr(elem);
+               elem._length = elem.value.length;
                 if (!isFirefox && !isOpera) {
                         padding = parseInt(getStyle('paddingTop')) + parseInt(getStyle('paddingBottom'));
                 };
@@ -268,6 +359,78 @@ function autoTextarea(elem, extra, maxHeight) {
         addEvent('focus', change);
         change();
 }
+
+    function formateStr(el)
+    {
+        var rangeData = getCursorPosition(el);
+
+        console.log("el.value = " + el.value);
+        console.log("el.value.substring = " + el.value.substring(rangeData.start-1, rangeData.start));
+        if (rangeData.start - oldFoucsLocation > 1)
+         {
+            // 一次性输入大于1的字符串，去除此时输入的字符串
+            el.value = el.value.substring(0,oldFoucsLocation);
+            return;
+        }
+        var endChar = el.value.substring(rangeData.start-1, rangeData.start);
+        if (endChar >= 'a' && endChar <= 'f' || endChar >= 'A' && endChar <= 'F' || endChar >= '0' && endChar <= '9')
+        {
+            // 输入的字符是十六进制数，开始做处理
+            
+            console.log('endChar = ' + endChar);
+            // 1.删除字符串的所有空格
+            // 2.每两个字符间添加一个空格
+            el.value = strAddSpace(el.value);
+
+            // // 3.重新设置焦点
+            // var newFocusLocation = rangeData.start;
+            // if ((oldFoucsLocation + 1) % 3 == 0) {
+            //     newFocusLocation += 1;
+            // }
+            // 4.存储焦点位置
+            oldFoucsLocation = el.value.length;
+            
+        }
+        else
+        {
+            // 输入的不是十六进制数，去除此时输入的字符串
+            console.log('输入的不是16进制数');
+            el.value = el.value.substring(0,oldFoucsLocation);
+            
+        }
+    }
+    
+    // 将给定的字符串设置成每两个字符间加一个空格的形式,并返回
+    function strAddSpace(str)
+    {
+        if (str.length == 0) {
+                return str;
+        }
+        // 1.删除字符串的所有空格
+             str = str.replace(/\s+/g,""); 
+            // 2.每两个字符间添加一个空格
+            if (str.length <= 2) {
+                return str.toUpperCase();
+            }
+
+            // 格式化后的字符串长度
+            var formateLength = str.length + (str.length - 1 - (str.length - 1) % 2) / 2;
+            console.log('formateLength = ' + formateLength);
+            
+            var newStr = str;
+            for(var i = 0; i < formateLength; ++i)
+            {
+                if (i > 0 && (i+1) % 3 == 0) {
+                    var tempStr = newStr.substring(0, i);
+                    tempStr += ' ';
+                    newStr = tempStr + newStr.substring(i, newStr.length);
+                    console.log('tempStr = ' + tempStr);
+                    console.log('newStr.substring(i) = ' + newStr.substring(i, newStr.length));
+                    console.log('newStr = ' + newStr);
+                }
+            }
+            return newStr.toUpperCase();
+    }
 
     //******************数据点为数值可写值的相关事件处理**********************
     function initSlide()
