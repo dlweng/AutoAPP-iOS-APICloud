@@ -363,16 +363,16 @@ function autoTextarea(elem, extra, maxHeight) {
     function formateStr(el)
     {
         var rangeData = getCursorPosition(el);
-
+        var newFocusLocation = rangeData.start;
         console.log("el.value = " + el.value);
-        console.log("el.value.substring = " + el.value.substring(rangeData.start-1, rangeData.start));
-        if (rangeData.start - oldFoucsLocation > 1)
+        console.log("el.value.substring = " + el.value.substring(newFocusLocation-1, newFocusLocation));
+        if (newFocusLocation - oldFoucsLocation > 1)
          {
             // 一次性输入大于1的字符串，去除此时输入的字符串
             el.value = el.value.substring(0,oldFoucsLocation);
             return;
         }
-        var endChar = el.value.substring(rangeData.start-1, rangeData.start);
+        var endChar = el.value.substring(newFocusLocation-1, newFocusLocation);
         if (endChar >= 'a' && endChar <= 'f' || endChar >= 'A' && endChar <= 'F' || endChar >= '0' && endChar <= '9')
         {
             // 输入的字符是十六进制数，开始做处理
@@ -382,13 +382,12 @@ function autoTextarea(elem, extra, maxHeight) {
             // 2.每两个字符间添加一个空格
             el.value = strAddSpace(el.value);
 
-            // // 3.重新设置焦点
-            // var newFocusLocation = rangeData.start;
-            // if ((oldFoucsLocation + 1) % 3 == 0) {
-            //     newFocusLocation += 1;
-            // }
+            // 3.重新设置焦点
+            if (newFocusLocation != 0 && newFocusLocation % 3 == 0){
+                newFocusLocation++;
+            }
             // 4.存储焦点位置
-            oldFoucsLocation = el.value.length;
+            oldFoucsLocation = newFocusLocation;
             
         }
         else
