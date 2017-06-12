@@ -31,7 +31,7 @@
         .gos_extendTitle {display: inline-block;  height: 18px; position: absolute;width:30%;top :0;bottom: 0;margin: auto;}
         .gos_extendLi{
             position: relative;padding:10px 0px;}
-        #textarea { 
+        .gos_extend { 
             display: table-cell;
             *display: inline-block;
             overflow: hidden; 
@@ -59,55 +59,27 @@
 <ul>
     <li>
         <span>布尔可写</span>
-        <span class="gos_rightBlock gos_ledOnOffBlock">
-            <input class="ios7CBox gos_ledOnOff" type="checkbox">
+        <span class="gos_rightBlock gos_bool_wBlock">
+            <input class="ios7CBox gos_bool_w" type="checkbox">
         </span>
     </li>
     <li>
         <span>枚举可写</span>
-        <select class="gos_rightBlock gos_EnumSelect" onchange="selectDidClick(this)">
-            <option class="gos_Enum0">四</option>
-            <option class="gos_Enum1">五</option>
-            <option class="gos_Enum2">六</option>
+        <select class="gos_rightBlock gos_enum_w" onchange="selectDidClick(this)">
+            <option class="gos_enum_r0">四</option>
+            <option class="gos_enum_r1">五</option>
+            <option class="gos_enum_r2">六</option>
         </select>
     </li>
     <li>
         <div class="gos_slideCellTop">
             <span>数值可写</span>
-            <span class="gos_rightBlock">0</span>
+            <span class="gos_rightBlock gos_data_wValue">0</span>
         </div>
         <div class="gos_slideCellBottom">
             <div class="gos_slideMin">0</div>
             <div class="gos_slideDiv">
-            <input class="gos_slide gos_slide1" type="range" min="0" max="9" step="3" value="6" data-rangeslider>
-            </div>
-            <div class="gos_slideMax">999</div>
-            <div style="clear: both;"></div>
-        </div>
-    </li>
-    <li>
-        <div class="gos_slideCellTop">
-            <span>数值可写</span>
-            <span class="gos_rightBlock">0</span>
-        </div>
-        <div class="gos_slideCellBottom">
-            <div class="gos_slideMin">0</div>
-            <div class="gos_slideDiv">
-            <input class="gos_slide gos_slide2" type="range" min="0" max="9" step="3" value="6" data-rangeslider>
-            </div>
-            <div class="gos_slideMax">999</div>
-            <div style="clear: both;"></div>
-        </div>
-    </li>
-    <li>
-        <div class="gos_slideCellTop">
-            <span>数值可写</span>
-            <span class="gos_rightBlock">0</span>
-        </div>
-        <div class="gos_slideCellBottom">
-            <div class="gos_slideMin">0</div>
-            <div class="gos_slideDiv">
-            <input class="gos_slide gos_slide3" type="range" min="0" max="9" step="3" value="6" data-rangeslider>
+            <input class="gos_slide gos_data_w" type="range" min="0" max="999" step="1" value="0" data-rangeslider>
             </div>
             <div class="gos_slideMax">999</div>
             <div style="clear: both;"></div>
@@ -115,25 +87,28 @@
     </li>
     <li class="gos_extendLi">
             <div class="gos_extendTitle">扩展可写</div>
-            <textarea id="textarea" class="gos_extend"></textarea> 
+            <textarea class="gos_extend gos_extend_w"></textarea> 
             <!-- <textarea id="textarea" class="gos_extend" onkeypress="enterPress(this)" onkeydown="enterPress(this)"></textarea>  -->
             <!--设置输入的字符只能是16进制数 onkeydown="value=value.replace(/[^\d/a-fA-F\s+]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d/a-fA-F\s+]/g,''))" -->
     </li>
     <li>
         <span class="gos_readonly">布尔只读</span>
-        <span class="gos_rightBlock">
-            <input class="ios7CBox gos_ledOnOff" type="checkbox">
+        <span class="gos_rightBlock gos_bool_rBlock">
+            <input class="ios7CBox gos_bool_r" type="checkbox">
         </span>
     </li>
     <li>
         <span class="gos_readonly">枚举只读</span>
-        <span class="gos_rightBlock gos_readonly gos_EnumReadOnly">一</span>
+        <span class="gos_rightBlock gos_readonly gos_enum_r">一</span>
     </li>
     <li>
         <span class="gos_readonly">数值只读</span>
-        <span class="gos_rightBlock gos_readonly gos_NumberReadOnly">0</span>
+        <span class="gos_rightBlock gos_readonly gos_data_r">0</span>
     </li>
-    
+    <li class="gos_extendLi">
+            <div class="gos_extendTitle gos_readonly">扩展只读</div>
+            <textarea class="gos_extend gos_extend_r" disabled="disabled"></textarea> 
+    </li>
 </ul>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
@@ -154,28 +129,42 @@
 
         var f = 0.1210;
         // 为布尔可写的按钮添加点击监听事件
+        addButtonClickEvent('gos_bool_wBlock'); 
+        // 设置slide的样式和监听器
         initSlide();
-        initExtend();
-        addButtonClickEvent('gos_ledOnOffBlock');   
-        updateSelectedShow('gos_EnumSelect', 1);
-        updateButtonShow('gos_ledOnOffBlock', 1);  
-        updateEnumShow('gos_EnumReadOnly', 'dajksdas');
-        updateNumberShow('gos_NumberReadOnly', f);
-        updateSlideShow('gos_slide1', 9);
-        updateSlideShow('gos_slide2', 3);
-        updateSlideShow('gos_slide3', 6);
-
+        initExtend('gos_extend_w');
+        
+        // 扩展可写值，设置键盘监听器
         enterPress();
+
+        // 下面是测试操作
+        // 布尔读写
+        updateBoolShow('gos_bool_wBlock', 1);  
+        // 布尔只读
+        updateBoolShow('gos_bool_rBlock', 1);  
+        // 枚举可写
+        updateEnumWriteShow('gos_enum_w', 1);
+        // 枚举只读
+        updateEnumReadShow('gos_enum_r', 'dajksdas');
+        // 数值可写
+        updateNumberWriteShow('gos_data_w', 9);
+        // 数值只读
+        updateNumberReadShow('gos_data_r', f);
+        // 扩展可写
+        updateExtendShow('gos_extend_w', 'AA BB CC DD');
+        // 扩展只读
+        updateExtendShow('gos_extend_r', 'AA BB CC EE AA BB CC EE AA BB CC EE AA BB CC EE AA BB CC EE');
     }
 
 
     function enterPress()
     {
-        $('#textarea').on("keydown", function(e){
+        $('.gos_extend').on("keydown", function(e){
             if (e.keyCode == 13 || e.keyCode == 34) {
                 console.log("退出键盘");
                 // 在这里写下发控制指令的代码
                 document.activeElement.blur();
+                oldFoucsLocation = 0;
             }
         });
     }
@@ -257,21 +246,26 @@ function setCursorPosition(textarea, rangeData) {
 }
 
     //******************数据点为扩展可写值的相关事件处理**********************
-    function initExtend()
+    function initExtend(clsName)
     {
-         var text = document.getElementById("textarea");
-        autoTextarea(text);// 调用
+        //  var text = document.getElementById("textarea");
+        // autoTextarea(text);// 调用
+
+        var extend = getElByClsName(clsName);
+        autoTextarea(extend);
     }
 
+    // 显示扩展值到界面
     function updateExtendShow(clsName, value)
     {
         var extend = getElByClsName(clsName);
         extend.value = value;
-        autoTextarea(extend);
+        console.log('设置扩展数据点值: extend = ' + extend);
+        setTextarea(extend);
     }
     
     /**
- * 文本框根据输入内容自适应高度
+ * 可写文本框根据输入内容自适应高度
  * @param                {HTMLElement}        输入框元素
  * @param                {Number}                设置光标与输入框保持的距离(默认0)
  * @param                {Number}                设置最大高度(可选)
@@ -362,10 +356,16 @@ function autoTextarea(elem, extra, maxHeight) {
 
     function formateStr(el)
     {
+
         var rangeData = getCursorPosition(el);
         var newFocusLocation = rangeData.start;
         console.log("el.value = " + el.value);
         console.log("el.value.substring = " + el.value.substring(newFocusLocation-1, newFocusLocation));
+        if (oldFoucsLocation == 0 && el.value.length != 0) 
+        {
+            oldFoucsLocation = el.value.length;
+            return;
+        }
         if (newFocusLocation - oldFoucsLocation > 1)
          {
             // 一次性输入大于1的字符串，去除此时输入的字符串
@@ -431,6 +431,79 @@ function autoTextarea(elem, extra, maxHeight) {
             return newStr.toUpperCase();
     }
 
+    /**
+ * 只读文本框根据输入内容自适应高度
+ * @param                {HTMLElement}        输入框元素
+ * @param                {Number}                设置光标与输入框保持的距离(默认0)
+ * @param                {Number}                设置最大高度(可选)
+ */
+function setTextarea(elem, extra, maxHeight) {
+
+        extra = extra || 0;
+        var isFirefox = !!document.getBoxObjectFor || 'mozInnerScreenX' in window,
+        isOpera = !!window.opera && !!window.opera.toString().indexOf('Opera'),
+                addEvent = function (type, callback) {
+                        elem.addEventListener ?
+                                elem.addEventListener(type, callback, false) :
+                                elem.attachEvent('on' + type, callback);
+                },
+                getStyle = elem.currentStyle ? function (name) {
+                        var val = elem.currentStyle[name];
+ 
+                        if (name === 'height' && val.search(/px/i) !== 1) {
+                                var rect = elem.getBoundingClientRect();
+                                return rect.bottom - rect.top -
+                                        parseFloat(getStyle('paddingTop')) -
+                                        parseFloat(getStyle('paddingBottom')) + 'px';        
+                        };
+ 
+                        return val;
+                } : function (name) {
+                                return getComputedStyle(elem, null)[name];
+                },
+                minHeight = parseFloat(getStyle('height'));
+ 
+        elem.style.resize = 'none';
+ 
+        var change = function () {
+    
+            console.log("change被调用");
+ 
+                var scrollTop, height,
+                        padding = 0,
+                        style = elem.style;
+               elem._length = elem.value.length;
+                if (!isFirefox && !isOpera) {
+                        padding = parseInt(getStyle('paddingTop')) + parseInt(getStyle('paddingBottom'));
+                };
+                scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+ 
+                elem.style.height    = minHeight + 'px';
+                if (elem.scrollHeight > minHeight) {
+                        if (maxHeight && elem.scrollHeight > maxHeight) {
+                                height = maxHeight - padding;
+                                style.overflowY = 'auto';
+                        } else {
+                                height = elem.scrollHeight - padding;
+                                style.overflowY = 'hidden';
+                        };
+                        style.height = height + extra + 'px';
+                        scrollTop += parseInt(style.height) - elem.currHeight;
+                        document.body.scrollTop = scrollTop;
+                        document.documentElement.scrollTop = scrollTop;
+                        elem.currHeight = parseInt(style.height);
+                };
+        };
+ 
+        // addEvent('propertychange', change);
+        // addEvent('input', change);
+        // addEvent('focus', change);
+        change();
+}
+
+
+    
+
     //******************数据点为数值可写值的相关事件处理**********************
     function initSlide()
     {
@@ -441,17 +514,11 @@ function autoTextarea(elem, extra, maxHeight) {
         // 滚动条滚动结束调用的方法
         $document.on('input', 'input[type="range"], ' + selector, function(e) {
             var el = e.target;
-            if (el == getElByClsName('gos_slide1'))
+            if (el == getElByClsName('gos_data_w'))
             {
-                console.log("gos_slide1 " + el.value);
-            }
-            else if (el == getElByClsName('gos_slide2'))
-            {
-                console.log("gos_slide2 " + el.value);
-            }
-            else if (el == getElByClsName('gos_slide3'))
-            {
-                console.log("gos_slide3 " + el.value);
+                console.log("gos_data_w " + el.value);
+                var valueEl = getElByClsName('gos_data_wValue');
+                valueEl.innerText = el.value;
             }
         });
 
@@ -459,7 +526,7 @@ function autoTextarea(elem, extra, maxHeight) {
     }
 
     // 更新滚动条值的方法
-    function updateSlideShow(clsName, value)
+    function updateNumberWriteShow(clsName, value)
     {
         var parentNode = getElByClsName(clsName).parentNode;
         var $inputRange = $('[data-rangeslider]', parentNode);
@@ -467,14 +534,14 @@ function autoTextarea(elem, extra, maxHeight) {
     }
 
    //******************数据点为数值只读值的相关事件处理**********************
-   function updateNumberShow(clsName, value)
+   function updateNumberReadShow(clsName, value)
    {
         var el = getElByClsName(clsName);
         el.innerText = value;
    }
 
    //******************数据点为枚举只读值的相关事件处理**********************
-   function updateEnumShow(clsName, value)
+   function updateEnumReadShow(clsName, value)
    {
         var el = getElByClsName(clsName);
         el.innerText = value;
@@ -489,7 +556,7 @@ function autoTextarea(elem, extra, maxHeight) {
    }
 
    // 为select选择某个值
-   function updateSelectedShow(selectedClsName, value)
+   function updateEnumWriteShow(selectedClsName, value)
    {
         var selected = getElByClsName(selectedClsName);
         selected.selectedIndex = value;
@@ -535,9 +602,9 @@ function autoTextarea(elem, extra, maxHeight) {
         console.log("buttonClsName = " + buttonClsName + ", isChecked = " + isChecked);
     }
 
-    // updateButtonShow('gos_ledOnOffBlock', 1);
+    // updateBoolShow('gos_bool_wBlock', 1);
     // 根据数据点值value改变按钮的显示状态
-    function updateButtonShow(blockClsName, value)
+    function updateBoolShow(blockClsName, value)
     {
         var blockEl = getElByClsName(blockClsName);
         var buttonClsName = "." + blockClsName.replace("Block", "");
