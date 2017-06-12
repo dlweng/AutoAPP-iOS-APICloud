@@ -38,12 +38,18 @@
 		 }, function(ret, err) {
 
 			if(ret && ret.errorCode === 8316 ){
+				// fnJumpWin({
+				// 	name:  'login',
+				// 	path: '/user',
+				// 	slidBackEnabled: true,
+				// 	y: 0
+				// })	
 				fnJumpWin({
-					name:  'login',
-					path: '/user',
+					name:  'deviceControl',
+					path: '/deviceControl',
 					slidBackEnabled: true,
 					y: 0
-				})	
+				})
 			}else{
 				fnNotes( err );
 			}

@@ -91,6 +91,10 @@
             <!-- <textarea id="textarea" class="gos_extend" onkeypress="enterPress(this)" onkeydown="enterPress(this)"></textarea>  -->
             <!--设置输入的字符只能是16进制数 onkeydown="value=value.replace(/[^\d/a-fA-F\s+]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d/a-fA-F\s+]/g,''))" -->
     </li>
+    <li class="gos_extendLi">
+            <div class="gos_extendTitle">扩展可写2</div>
+            <textarea class="gos_extend gos_extend_w2"></textarea> 
+    </li>
     <li>
         <span class="gos_readonly">布尔只读</span>
         <span class="gos_rightBlock gos_bool_rBlock">
@@ -133,6 +137,7 @@
         // 设置slide的样式和监听器
         initSlide();
         initExtend('gos_extend_w');
+        initExtend('gos_extend_w2');
         
         // 扩展可写值，设置键盘监听器
         enterPress();
@@ -161,10 +166,17 @@
     {
         $('.gos_extend').on("keydown", function(e){
             if (e.keyCode == 13 || e.keyCode == 34) {
-                console.log("退出键盘");
-                // 在这里写下发控制指令的代码
                 document.activeElement.blur();
                 oldFoucsLocation = 0;
+
+                // 在这里写下发扩展数据点的指令
+                if (this == getElByClsName('gos_extend_w')) {
+                    console.log('gos_extend_w输入的扩展值值是: ' + this.value.replace(/\s+/g,""));
+                }
+                else if(this == getElByClsName('gos_extend_w2'))
+                {
+                    console.log('gos_extend_w2输入的扩展值值是: ' + this.value.replace(/\s+/g,""));
+                }
             }
         });
     }
@@ -216,34 +228,34 @@
     return rangeData;
 }
 
-/**
-* setCursorPosition Method
-*
-* Created by Blank Zheng on 2010/11/12.
-* Copyright (c) 2010 PlanABC.net. All rights reserved.
-* 
-* The copyrights embodied in the content of this file are licensed under the BSD (revised) open source license.
-*/
-function setCursorPosition(textarea, rangeData) {
-    if(!rangeData) {
-        alert("You must get cursor position first.")
-    }
-    if (textarea.setSelectionRange) { // W3C
-        textarea.focus();
-        textarea.setSelectionRange(rangeData.start, rangeData.end);
-    } else if (textarea.createTextRange) { // IE
-        var oR = textarea.createTextRange();
-        // Fixbug :
-        // In IE, if cursor position at the end of textarea, the setCursorPosition function don't work
-        if(textarea.value.length === rangeData.start) {
-            oR.collapse(false)
-            oR.select();
-        } else {
-            oR.moveToBookmark(rangeData.bookmark);
-            oR.select();    
-        }
-    }
-}
+// /**
+// * setCursorPosition Method
+// *
+// * Created by Blank Zheng on 2010/11/12.
+// * Copyright (c) 2010 PlanABC.net. All rights reserved.
+// * 
+// * The copyrights embodied in the content of this file are licensed under the BSD (revised) open source license.
+// */
+// function setCursorPosition(textarea, rangeData) {
+//     if(!rangeData) {
+//         alert("You must get cursor position first.")
+//     }
+//     if (textarea.setSelectionRange) { // W3C
+//         textarea.focus();
+//         textarea.setSelectionRange(rangeData.start, rangeData.end);
+//     } else if (textarea.createTextRange) { // IE
+//         var oR = textarea.createTextRange();
+//         // Fixbug :
+//         // In IE, if cursor position at the end of textarea, the setCursorPosition function don't work
+//         if(textarea.value.length === rangeData.start) {
+//             oR.collapse(false)
+//             oR.select();
+//         } else {
+//             oR.moveToBookmark(rangeData.bookmark);
+//             oR.select();    
+//         }
+//     }
+// }
 
     //******************数据点为扩展可写值的相关事件处理**********************
     function initExtend(clsName)
@@ -311,19 +323,7 @@ function autoTextarea(elem, extra, maxHeight) {
                 // elem._length 本次未输入前的长度
             
                 console.log('elem.value = ' + elem.value);
-                // console.log('elem.value.length = ' + elem.value.length);
-                // console.log('elem.lenght' + elem._length)
-                // var rangeData = getCursorPosition(getElByClsName('gos_extend'));
-                // console.log('rangeData.text = ' + rangeData.text + ', rangeData.start = ' + rangeData.start + ', rangeData.end = ' + rangeData.end);
-
-                // rangeData.start = 3;
-                // rangeData.end = 3;
-                // setCursorPosition(getElByClsName('gos_extend'), rangeData);
-
-                // elem.value = elem.value.toUpperCase();  //将小写字母替换为大写字母
-            
-
-               // elem.value = "dsadaklsdadjada"
+                // 格式化字符串
                formateStr(elem);
                elem._length = elem.value.length;
                 if (!isFirefox && !isOpera) {
@@ -363,9 +363,11 @@ function autoTextarea(elem, extra, maxHeight) {
         console.log("el.value.substring = " + el.value.substring(newFocusLocation-1, newFocusLocation));
         if (oldFoucsLocation == 0 && el.value.length != 0) 
         {
+            // 解决扩展数据原本就有值，去编辑的问题
             oldFoucsLocation = el.value.length;
             return;
         }
+
         if (newFocusLocation - oldFoucsLocation > 1)
          {
             // 一次性输入大于1的字符串，去除此时输入的字符串
@@ -394,7 +396,10 @@ function autoTextarea(elem, extra, maxHeight) {
         {
             // 输入的不是十六进制数，去除此时输入的字符串
             console.log('输入的不是16进制数');
-            el.value = el.value.substring(0,oldFoucsLocation);
+            if (newFocusLocation > oldFoucsLocation) {
+                el.value = el.value.substring(0,oldFoucsLocation);    
+            }
+            
             
         }
     }
@@ -516,6 +521,7 @@ function setTextarea(elem, extra, maxHeight) {
             var el = e.target;
             if (el == getElByClsName('gos_data_w'))
             {
+                // 下发可写数据点值控制指令的位置
                 console.log("gos_data_w " + el.value);
                 var valueEl = getElByClsName('gos_data_wValue');
                 valueEl.innerText = el.value;
@@ -599,6 +605,7 @@ function setTextarea(elem, extra, maxHeight) {
     // 根据button父标签修改按钮的被点击情况
     function updateButtonAttr(buttonClsName, isChecked)
     {
+        // 下发布尔可写值控制指令位置
         console.log("buttonClsName = " + buttonClsName + ", isChecked = " + isChecked);
     }
 
